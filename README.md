@@ -80,3 +80,12 @@ Se exportan 53.940 filas en ~0,03 s.
 El Parquet (~485 KB) ocupa mucho menos que el CSV original (~2,7 MB) gracias a su almacenamiento columnar comprimido.
 
 ![Archivos](img/08-archivos-resultantes.png)
+
+### 7. Consultar el Parquet directamente
+DuckDB puede consultar el fichero Parquet sin importarlo a ninguna tabla:
+```sql
+SELECT cut, AVG(price)
+FROM 'C:/Users/AlumnoM_AI/Desktop/DuckDB/diamantes_optimizados.parquet'
+GROUP BY cut;
+```
+![Consulta sobre Parquet](img/09-consulta-parquet.png)
